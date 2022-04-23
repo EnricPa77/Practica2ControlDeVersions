@@ -5,8 +5,7 @@
  */
 package practica2;
 
-import java.util.Scanner;
-
+import static practica2.Metodes.*;
 /**
  *
  * @author esther
@@ -17,27 +16,23 @@ public class Practica2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         double res = 0;
-        String operacion;
+        String operacion = "";
         boolean comprobar = false;
 
         do {
 
-            String numero1;
+            String numero1 = "";
             do {
-                System.out.print("\n Introdueix el primer numero: ");
-                numero1 = sc.nextLine();
+           
+                numero1 = demanarPrimerNum();
             } while (!numero1.matches("[+-]?[\\d]*[.]?[\\d]+"));
             double nume1 = Double.parseDouble(numero1);
             double n1 = new Double(numero1);
 
             do {
-                System.out.println("\n Quina operació vols realitzar? (Indica el signe)");
-                System.out.println("+ = sumar \n - = restar \n"
-                        + " x = multiplicar \n / = dividir \n * = elevar primer num al segon num."
-                        + "\n % = residu");
-                operacion = sc.nextLine();
+                  operacion = mostrarOpcions();
+                
                 if (operacion.equals("+") || operacion.equals("-") || operacion.equals("x")
                         || operacion.equals("X") || operacion.equals("/") || operacion.equals("%")
                         || operacion.equals("*")) {
@@ -47,10 +42,10 @@ public class Practica2 {
                 }
             } while (comprobar != true);
 
-            String numero2;
+            String numero2 = "";
             do {
-                System.out.print("\n Introdueix el segon numero: ");
-                numero2 = sc.nextLine();
+  
+                numero2 = demanarSegonNum();
             } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
             double nume2 = Double.parseDouble(numero2);
             double n2 = new Double(numero2);
@@ -98,7 +93,7 @@ public class Practica2 {
                 }
             } while (comprobar != true);
 
-            System.out.println("Operació: (" + numero1 + ") " + operacion + " (" + numero2 + ")" + " = " + res);
+            resultat(numero1,operacion,numero2,res);
             System.out.println("\n Vols continuar operant? \n");
             System.out.println(" [s/n]");
             do {
