@@ -6,6 +6,7 @@
 package practica2;
 
 import static practica2.Metodes.*;
+
 /**
  *
  * @author esther
@@ -24,15 +25,15 @@ public class Practica2 {
 
             String numero1 = "";
             do {
-           
+
                 numero1 = demanarPrimerNum();
             } while (!numero1.matches("[+-]?[\\d]*[.]?[\\d]+"));
             double nume1 = Double.parseDouble(numero1);
             double n1 = new Double(numero1);
 
             do {
-                  operacion = mostrarOpcions();
-                
+                operacion = mostrarOpcions();
+
                 if (operacion.equals("+") || operacion.equals("-") || operacion.equals("x")
                         || operacion.equals("X") || operacion.equals("/") || operacion.equals("%")
                         || operacion.equals("*")) {
@@ -44,7 +45,7 @@ public class Practica2 {
 
             String numero2 = "";
             do {
-  
+
                 numero2 = demanarSegonNum();
             } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
             double nume2 = Double.parseDouble(numero2);
@@ -93,9 +94,8 @@ public class Practica2 {
                 }
             } while (comprobar != true);
 
-            resultat(numero1,operacion,numero2,res);
-            System.out.println("\n Vols continuar operant? \n");
-            System.out.println(" [s/n]");
+            resultat(numero1, operacion, numero2, res);
+            seguirOperant();
             do {
                 comprobar = true;
                 operacion = sc.nextLine();
